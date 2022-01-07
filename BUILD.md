@@ -9,3 +9,4 @@ ptc_version=$(cat project.version) && docker build ./ -t pegi3s/phylogenetic-tre
 # Build log
 
 - 0.0.1 - 04/11/2021 - Hugo López Fernández
+- 1.0.0 - 07/01/2022 - Hugo López Fernández
