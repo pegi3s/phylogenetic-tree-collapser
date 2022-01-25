@@ -1,11 +1,18 @@
 # Phylogenetic Tree Collapser [![license](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/pegi3s/phylogenetic-tree-collapser) [![dockerhub](https://img.shields.io/badge/hub-docker-blue)](https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser)
 > **Phylogenetic Tree Collapser** (PTC) provides a simple and flexible way to collapse phylogenetic trees using taxonomic information. A Docker image is available for this utility in [this Docker Hub repository](https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser).
 
+## Table of contents
+
+   * [Input files](README.md#input-files)
+   * [PTC collapsing procedure](README.md#ptc-collapsing-procedure)
+   * [Running PTC](README.md#running-ptc)
+   * [Test cases](README.md#test-cases)
+
 # Input files
 
 PTC uses the following input files:
 - `--input`: a phylogenetic tree whose format is specified with `--input-format` (Newick, NEXUS, nexml, phyloxml, or cdao formats supported).
-- `--sequence-mapping`: a tab-delimited file mapping each sequence name to its species. This file must have two colums: the first containing the sequence names of the input tree and the second one containing their corresponding species.
+- `--sequence-mapping`: a tab-delimited file mapping each sequence name to its species. This file must have two columns: the first containing the sequence names of the input tree and the second one containing their corresponding species.
 - `--taxonomy`: a plain-text file with the input taxonomy file. This file must have one line for each species with their taxonomy terms separated by semi-colons.
 - `--taxonomy-stop-terms`: a plain-text file with the taxonomy stop terms file (one line for each stop term).
 
@@ -24,9 +31,9 @@ Bactrocera_latifrons;Bactrocera;Bactrocera;Dacini;Dacinae;Tephritidae;Tephritoid
 Drosophila_melanogaster;melanogaster_subgroup;melanogaster_group;Sophophora;Drosophila;Drosophilini;Drosophilinae;Drosophilidae;Ephydroidea;Acalyptratae;Schizophora;Cyclorrhapha;Eremoneura;Muscomorpha;Brachycera;Diptera;Endopterygota;Neoptera;Pterygota;Dicondylia;Insecta;Hexapoda;Pancrustacea;Mandibulata;Arthropoda;Panarthropoda;Ecdysozoa;Protostomia;Bilateria;Eumetazoa;Metazoa;Opisthokonta;Eukaryota;cellular_organisms;
 ```
 
-If _Drosophilidae_ and _Tephritidae_ (families) are the stop terms list, then the two sequences are not collapsible. However, if only _Diptera_ (an order) is provided as stop term, then they are collapsed. In this case, the two nodes are collapsed into a single node, whose name is the one of the lowest common ancestor, `Acalyptratae` in this case. The process continues until no more sibling nodes can be collapsed.
+If _Drosophilidae_ and _Tephritidae_ (families) are the stop terms list, then the two sequences are not collapsible. However, if only _Diptera_ (an order) is provided as stop term, then they are collapsed. In this case, the two nodes are collapsed into a single node, whose name is the one of the lowest common ancestor, _Acalyptratae_ in this case. The process continues until no more sibling nodes can be collapsed.
 
-The output tree (`--output output.nwk`) generated with PTC can be a a cladogram (`--output-type cladogram`) or a phylogram (`--output-type phylogram`) in Newick format. To obtain a phylogram, the input phylogenetic tree must include branch lenghts. The names of the collapsed nodes have the following format: `<common_ancestor>_<group_name>_<number_of_nodes>`, where `<group_name>` is an auto-incremental index for disambiguation and `<number_of_nodes>` is the number of nodes under this collapsing. In addition, a tab-delimited file with the collapsed nodes (mapping collapsed node names to sequence names) is generated (`--output-collapsed-nodes collapsed_nodes.tsv`).
+The output tree (`--output output.nwk`) generated with PTC can be a cladogram (`--output-type cladogram`) or a phylogram (`--output-type phylogram`) in Newick format. To obtain a phylogram, the input phylogenetic tree must include branch lengths. The names of the collapsed nodes have the following format: `<common_ancestor>_<group_name>_<number_of_nodes>`, where `<group_name>` is an auto-incremental index for disambiguation and `<number_of_nodes>` is the number of nodes under this collapsing. In addition, a tab-delimited file with the collapsed nodes (mapping collapsed node names to sequence names) is generated (`--output-collapsed-nodes collapsed_nodes.tsv`).
 
 As explained above, the name of the collapsed nodes is the one of the lowest common ancestor below the stop terms. In some cases, you may be interested in having the stop terms as names of the collapsed nodes (e.g. you want to collapse a tree using only the family names as stop terms and have this family names in the collapsed tree). To do this, you can use the `--flatten-taxonomy-with-stop-terms` flag, which asks PTC to flatten the taxonomy using the list of stop terms provided. The flattened taxonomy is saved to `<input_taxonomy>.flattened_stop_terms`.
 
