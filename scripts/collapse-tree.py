@@ -103,7 +103,7 @@ if not(arg.input_format == 'newick'):
 	if docker_data_path == None:
 		docker_data_path = input_file_dir
 
-	command_convert_tree = 'docker run --rm -it -v {}:/data pegi3s/biopython_utilities:{} convert_tree.py -i /data/{} -if {} -o /data/{} -of newick'.format(docker_data_path, version_biopython_utilities, input_file_name, arg.input_format, input_file_name + '.nwk')
+	command_convert_tree = 'docker run --rm -it -v "{}":/data pegi3s/biopython_utilities:{} convert_tree.py -i /data/{} -if {} -o /data/{} -of newick'.format(docker_data_path, version_biopython_utilities, input_file_name, arg.input_format, input_file_name + '.nwk')
 
 	run(command_convert_tree)
 	input_file = input_file_dir + '/' + input_file_name + '.nwk'
