@@ -14,7 +14,10 @@ LOGGER.setLevel(logging.DEBUG)
 LOGGER.info('Running collapse-tree.py')
 
 ptc_version = os.getenv('PTC_VERSION', default='NA')
-LOGGER.info('Version: {}'.format(ptc_version))
+LOGGER.info('PTC Version: {}'.format(ptc_version))
+
+ptc_jar_version = os.getenv('PTC_JAR_VERSION', default='NA')
+LOGGER.info('PTC JAR Version: {}'.format(ptc_jar_version))
 
 #
 # Auxiliary functions
