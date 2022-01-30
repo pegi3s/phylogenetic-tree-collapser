@@ -8,6 +8,8 @@ source project.version && docker build ./ -t pegi3s/phylogenetic-tree-collapser:
 
 # Build log
 
+- 1.1.0 - 30/01/2022 - Hugo López Fernández
+- 1.0.3 - 27/01/2022 - Hugo López Fernández
 - 1.0.2 - 27/01/2022 - Hugo López Fernández
 - 1.0.1 - 25/01/2022 - Hugo López Fernández
 - 1.0.0 - 07/01/2022 - Hugo López Fernández

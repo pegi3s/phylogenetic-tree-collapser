@@ -59,13 +59,24 @@ sort -u ${TEMP_WORKING_DIR}/2 | sed 's/_/+/g' > ${TEMP_WORKING_DIR}/list_of_spec
 
 rm -f ${TEMP_WORKING_DIR}/1 ${TEMP_WORKING_DIR}/2 ${OUTPUT_TAXONOMY_FILE} ${OUTPUT_MAPPING_FILE}
 
-while read list
+while read species
 do
-    echo "Processing species: ${list}"
-	docker run --rm pegi3s/entrez-direct bash -c "esearch -db taxonomy -query "${list}" | efetch -db taxonomy -format xml" > ${TEMP_WORKING_DIR}/${list}.xml
-	taxo=$(grep '<Lineage>' ${TEMP_WORKING_DIR}/${list}.xml | sed 's/\<Lineage\>//g; s/[></]//g; s/$/;/g; s/;/;\n/g' | tac | tr '\n' ' ' | sed 's/;$//g')
-	echo $list ";" $taxo >> ${TEMP_WORKING_DIR}/taxonomy
-	rm ${TEMP_WORKING_DIR}/${list}.xml
+	echo "Processing species: ${species}"
+	if [ ! -z ${PATH_PTC_CACHE} ] && [ -d ${PATH_PTC_CACHE} ] && [ -s ${PATH_PTC_CACHE}/${species} ]; then
+		echo "Found taxonomy file in cache: ${PATH_PTC_CACHE}/${species}"
+		taxo=$(cat ${PATH_PTC_CACHE}/${species})
+		echo ${species} ";" ${taxo} >> ${TEMP_WORKING_DIR}/taxonomy
+	else
+		docker run --rm pegi3s/entrez-direct bash -c "esearch -db taxonomy -query "${species}" | efetch -db taxonomy -format xml" > ${TEMP_WORKING_DIR}/${species}.xml
+		taxo=$(grep '<Lineage>' ${TEMP_WORKING_DIR}/${species}.xml | sed 's/\<Lineage\>//g; s/[></]//g; s/$/;/g; s/;/;\n/g' | tac | tr '\n' ' ' | sed 's/;$//g')
+		echo ${species} ";" ${taxo} >> ${TEMP_WORKING_DIR}/taxonomy
+		rm ${TEMP_WORKING_DIR}/${species}.xml
+		if [ ! -z ${PATH_PTC_CACHE} ] && [ -d ${PATH_PTC_CACHE} ]; then
+			echo ${taxo} > ${PATH_PTC_CACHE}/${species}
+			sed -i 's/ ;/;/g; s/; /;/g; s/ /_/g' ${PATH_PTC_CACHE}/${species}
+			sed -i 's/+/_/g' ${PATH_PTC_CACHE}/${species}
+		fi
+	fi
 done < ${TEMP_WORKING_DIR}/list_of_species
 
 sed -i 's/ ;/;/g; s/; /;/g; s/ /_/g' ${TEMP_WORKING_DIR}/taxonomy
