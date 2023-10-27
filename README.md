@@ -1,3 +1,5 @@
+<img src="https://github.com/pegi3s/phylogenetic-tree-collapser/raw/master/icon.png" align="right" />
+
 # Phylogenetic Tree Collapser [![license](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/pegi3s/phylogenetic-tree-collapser) [![dockerhub](https://img.shields.io/badge/hub-docker-blue)](https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser)
 > **Phylogenetic Tree Collapser** (PTC) provides a simple and flexible way to collapse phylogenetic trees using taxonomic information. A Docker image is available for this utility in [this Docker Hub repository](https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser).
 
@@ -52,10 +54,24 @@ To run PTC, the Docker image that contains the script along with all its depende
 - `-v /var/run/docker.sock:/var/run/docker.sock`: mounts the `docker.sock` to give access to the host's docker.
 
 The generic commands that you should adapt to run PTC is:
-```
+
+```console
 DATA_DIR=/path/to/data
 
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ptc-cache:/ptc-cache -v ${DATA_DIR}:/data pegi3s/phylogenetic-tree-collapser collapse-tree.py --input /data/input-tree --input-format newick --taxonomy-stop-terms /data/stop_terms --sequence-mapping /data/sequence_to_species_mapping --taxonomy /data/taxonomy --output /data/output-tree.nwk --output-type phylogram --output-collapsed-nodes /data/collapsed_nodes.tsv --input-path-host ${DATA_DIR}
+docker run --rm -it \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+   -v ~/.ptc-cache:/ptc-cache \
+   -v ${DATA_DIR}:/data \
+      pegi3s/phylogenetic-tree-collapser collapse-tree.py \
+         --input /data/input-tree \
+         --input-format newick  \
+         --taxonomy-stop-terms /data/stop_terms \ 
+         --sequence-mapping /data/sequence_to_species_mapping  \
+         --taxonomy /data/taxonomy  \
+         --output /data/output-tree.nwk  \
+         --output-type phylogram  \
+         --output-collapsed-nodes /data/collapsed_nodes.tsv  \
+         --input-path-host ${DATA_DIR}
 ```
 
 As explained above and the test cases illustrate, some parameters are optional. Note that the `--input-path-host` is mandatory and must indicate the path in the host to the input files.
@@ -73,10 +89,21 @@ The simplest case consists in providing only an input phylogenetic tree. As the 
 ![Test case 1](images/ptc_diagram_case_1.png)
 
 To execute this test case, you should adapt and run the following commands (just update `DATA_DIR`):
-```
+
+```console
 DATA_DIR=/path/to/data
 
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ptc-cache:/ptc-cache -v ${DATA_DIR}:/data pegi3s/phylogenetic-tree-collapser collapse-tree.py --input /data/diptera_tree.con --input-format nexus --output /data/collapsed_family_names_phylogram_diptera_tree.con.nwk --output-type phylogram --output-collapsed-nodes /data/collapsed_family_names_phylogram_diptera_tree.con.tsv --input-path-host ${DATA_DIR}
+docker run --rm -it \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+   -v ~/.ptc-cache:/ptc-cache \
+   -v ${DATA_DIR}:/data \
+      pegi3s/phylogenetic-tree-collapser collapse-tree.py \
+         --input /data/diptera_tree.con \
+         --input-format nexus \
+         --output /data/collapsed_family_names_phylogram_diptera_tree.con.nwk \
+         --output-type phylogram \
+         --output-collapsed-nodes /data/collapsed_family_names_phylogram_diptera_tree.con.tsv \
+         --input-path-host ${DATA_DIR}
 ```
 
 You can view the collapsed phylogenetic tree using a tool like MEGA X, for which we have a Docker image available [here](https://hub.docker.com/r/pegi3s/megax/).
@@ -88,23 +115,47 @@ The second case consists in providing an input phylogenetic tree and a stop term
 ![Test case 2](images/ptc_diagram_case_2.png)
 
 To execute this test case, you should adapt and run the following commands (just update `DATA_DIR`):
-```
+
+```console
 DATA_DIR=/path/to/data
 
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ptc-cache:/ptc-cache -v ${DATA_DIR}:/data pegi3s/phylogenetic-tree-collapser collapse-tree.py --input /data/diptera_tree.con --input-format nexus --taxonomy-stop-terms /data/stop_terms --output /data/collapsed_phylogram_diptera_tree.con.nwk --output-type phylogram --output-collapsed-nodes /data/collapsed_phylogram_diptera_tree.con.tsv --input-path-host ${DATA_DIR}
+docker run --rm -it \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+   -v ~/.ptc-cache:/ptc-cache \
+   -v ${DATA_DIR}:/data \
+      pegi3s/phylogenetic-tree-collapser collapse-tree.py \
+         --input /data/diptera_tree.con \
+         --input-format nexus \
+         --taxonomy-stop-terms /data/stop_terms \
+         --output /data/collapsed_phylogram_diptera_tree.con.nwk \
+         --output-type phylogram \
+         --output-collapsed-nodes /data/collapsed_phylogram_diptera_tree.con.tsv \
+         --input-path-host ${DATA_DIR}
 ```
 
 ## 3. Providing only an input phylogenetic tree and asking to flatten the taxonomy
 
-The second case consists in providing an input phylogenetic tree and asking to flatten the taxonomy using the stop terms. As the image below shows, this is the same as the other two cases and the taxonomic information is automatically downloaded. However, instead of using the complete taxonomy, the `--flatten-taxonomy-with-stop-terms` is used to flatten it using the stop terms (not provided and therefore the default ones are used as in the first test case). The flattened taxonomy is saved to `input-tree.nwk.taxonomy.flattened_stop_terms`.
+The third case consists in providing an input phylogenetic tree and asking to flatten the taxonomy using the stop terms. As the image below shows, this is the same as the other two cases and the taxonomic information is automatically downloaded. However, instead of using the complete taxonomy, the `--flatten-taxonomy-with-stop-terms` is used to flatten it using the stop terms (not provided and therefore the default ones are used as in the first test case). The flattened taxonomy is saved to `input-tree.nwk.taxonomy.flattened_stop_terms`.
 
 ![Test case 3](images/ptc_diagram_case_3.png)
 
 To execute this test case, you should adapt and run the following commands (just update `DATA_DIR`):
-```
+
+```console
 DATA_DIR=/path/to/data
 
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ptc-cache:/ptc-cache -v ${DATA_DIR}:/data pegi3s/phylogenetic-tree-collapser collapse-tree.py --input /data/diptera_tree.con --input-format nexus --output /data/collapsed_family_names_flatten_tax_phylogram_diptera_tree.con.nwk --output-type phylogram --output-collapsed-nodes /data/collapsed_family_names_flatten_tax_phylogram_diptera_tree.con.tsv --input-path-host ${DATA_DIR} --flatten-taxonomy-with-stop-terms
+docker run --rm -it \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+   -v ~/.ptc-cache:/ptc-cache \
+   -v ${DATA_DIR}:/data \
+      pegi3s/phylogenetic-tree-collapser collapse-tree.py \
+      --input /data/diptera_tree.con \
+      --input-format nexus \
+      --output /data/collapsed_family_names_flatten_tax_phylogram_diptera_tree.con.nwk \
+      --output-type phylogram \
+      --output-collapsed-nodes /data/collapsed_family_names_flatten_tax_phylogram_diptera_tree.con.tsv \
+      --input-path-host ${DATA_DIR} \
+      --flatten-taxonomy-with-stop-terms
 ```
 
 ## 4. Providing all input files
@@ -114,8 +165,22 @@ In this fourth test case, the four input files are provided as the image below s
 ![Test case 4](images/ptc_diagram_case_4.png)
 
 To execute this test case, you must have run the first use case previously so that the input files have already been generated. Then, you should adapt and run the following commands (just update `DATA_DIR`):
-```
+
+```console
 DATA_DIR=/path/to/data
 
-docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v ~/.ptc-cache:/ptc-cache -v ${DATA_DIR}:/data pegi3s/phylogenetic-tree-collapser collapse-tree.py --input /data/diptera_tree.con.nwk --input-format newick --taxonomy-stop-terms /data/stop_terms --sequence-mapping /data/diptera_tree.con.nwk.sequence_to_species_mapping --taxonomy /data/diptera_tree.con.nwk.taxonomy --output /data/collapsed_phylogram_using_all_diptera_tree.con.nwk --output-type phylogram --output-collapsed-nodes /data/collapsed_phylogram_using_all_diptera_tree.con.tsv --input-path-host ${DATA_DIR}
+docker run --rm -it \
+   -v /var/run/docker.sock:/var/run/docker.sock \
+   -v ~/.ptc-cache:/ptc-cache \
+   -v ${DATA_DIR}:/data \
+      pegi3s/phylogenetic-tree-collapser collapse-tree.py \
+         --input /data/diptera_tree.con.nwk \
+         --input-format newick \
+         --taxonomy-stop-terms /data/stop_terms \
+         --sequence-mapping /data/diptera_tree.con.nwk.sequence_to_species_mapping \
+         --taxonomy /data/diptera_tree.con.nwk.taxonomy \
+         --output /data/collapsed_phylogram_using_all_diptera_tree.con.nwk \
+         --output-type phylogram \
+         --output-collapsed-nodes /data/collapsed_phylogram_using_all_diptera_tree.con.tsv \
+         --input-path-host ${DATA_DIR}
 ```
