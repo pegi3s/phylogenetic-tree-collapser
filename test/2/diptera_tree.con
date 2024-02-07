@@ -1,0 +1,198 @@
+#NEXUS
+
+[ID: 9495401181]
+begin taxa;
+	dimensions ntax=89;
+	taxlabels
+		Aedes_aegypti_yellow_fever_mosquito_Culicidae_EAT47891.1
+		Aedes_aegypti_yellow_fever_mosquito_Culicidae_XP_021707378.1
+		Aedes_albopictus_Asian_tiger_mosquito_Culicidae_KXJ72638.1
+		Aedes_albopictus_Asian_tiger_mosquito_Culicidae_KXJ77200.1
+		Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019533138.1
+		Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019534168.1
+		Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019547023.1
+		Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019547030.1
+		Anopheles_darlingi_American_malaria_mosquito_Culicidae_ETN58798.1
+		Anopheles_darlingi_American_malaria_mosquito_Culicidae_ETN63018.1
+		Anopheles_gambiae_str._PEST_African_malaria_mosquito_Culicidae_EAA14899.4
+		Anopheles_sinensis_mosquitos_Culicidae_KFB37625.1
+		Anopheles_sinensis_mosquitos_Culicidae_KFB37626.1
+		Anopheles_sinensis_mosquitos_Culicidae_KFB43061.1
+		Anopheles_sinensis_mosquitos_Culicidae_KFB45338.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569333.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569343.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569348.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569351.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569352.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569372.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569373.1
+		Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018577150.1
+		Bactrocera_dorsalis_oriental_fruit_fly_Tephritidae_XP_011208874.1
+		Bactrocera_dorsalis_oriental_fruit_fly_Tephritidae_XP_011208904.1
+		Bactrocera_dorsalis_oriental_fruit_fly_Tephritidae_XP_019847224.1
+		Bactrocera_latifrons_flies_Tephritidae_XP_018802378.1
+		Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014100924.1
+		Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014103567.1
+		Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014103569.1
+		Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014103597.1
+		Clunio_marinus_flies_Chironomidae_CRK88362.1
+		Clunio_marinus_flies_Chironomidae_CRK91220.1
+		Clunio_marinus_flies_Chironomidae_CRK93383.1
+		Culex_quinquefasciatus_southern_house_mosquito_Culicidae_EDS29412.1
+		Culex_quinquefasciatus_southern_house_mosquito_Culicidae_EDS30081.1
+		Drosophila_ananassae_flies_Drosophilidae_KPU77448.1
+		Drosophila_ananassae_flies_Drosophilidae_KPU79865.1
+		Drosophila_ananassae_flies_Drosophilidae_KPU79867.1
+		Drosophila_arizonae_flies_Drosophilidae_XP_017871268.1
+		Drosophila_biarmipes_flies_Drosophilidae_XP_016950475.1
+		Drosophila_biarmipes_flies_Drosophilidae_XP_016960291.1
+		Drosophila_bipectinata_flies_Drosophilidae_XP_017101818.1
+		Drosophila_bipectinata_flies_Drosophilidae_XP_017101819.1
+		Drosophila_bipectinata_flies_Drosophilidae_XP_017101820.1
+		Drosophila_bipectinata_flies_Drosophilidae_XP_017101821.1
+		Drosophila_bipectinata_flies_Drosophilidae_XP_017109388.1
+		Drosophila_busckii_flies_Drosophilidae_XP_017850774.1
+		Drosophila_elegans_flies_Drosophilidae_XP_017115146.1
+		Drosophila_erecta_flies_Drosophilidae_EDV48921.1
+		Drosophila_eugracilis_flies_Drosophilidae_XP_017065069.1
+		Drosophila_eugracilis_flies_Drosophilidae_XP_017073118.1
+		Drosophila_ficusphila_flies_Drosophilidae_XP_017056315.1
+		Drosophila_kikkawai_flies_Drosophilidae_XP_017029996.1
+		Drosophila_melanogaster_fruit_fly_Drosophilidae_AAN09306.2
+		Drosophila_melanogaster_fruit_fly_Drosophilidae_AGB95961.1
+		Drosophila_miranda_flies_Drosophilidae_XP_017136629.1
+		Drosophila_miranda_flies_Drosophilidae_XP_017140878.1
+		Drosophila_mojavensis_flies_Drosophilidae_KRG07001.1
+		Drosophila_navojoa_flies_Drosophilidae_XP_017964926.1
+		Drosophila_obscura_flies_Drosophilidae_XP_022211485.1
+		Drosophila_obscura_flies_Drosophilidae_XP_022217077.1
+		Drosophila_persimilis_flies_Drosophilidae_EDW23898.1
+		Drosophila_persimilis_flies_Drosophilidae_EDW27442.1
+		Drosophila_pseudoobscura_pseudoobscura_flies_Drosophilidae_EDY67765.1
+		Drosophila_rhopaloa_flies_Drosophilidae_XP_016986237.1
+		Drosophila_sechellia_flies_Drosophilidae_EDW42149.1
+		Drosophila_sechellia_flies_Drosophilidae_EDW53753.1
+		Drosophila_serrata_flies_Drosophilidae_XP_020804937.1
+		Drosophila_serrata_flies_Drosophilidae_XP_020812821.1
+		Drosophila_simulans_flies_Drosophilidae_EDX12917.1
+		Drosophila_suzukii_flies_Drosophilidae_XP_016923841.1
+		Drosophila_suzukii_flies_Drosophilidae_XP_016937589.1
+		Drosophila_takahashii_flies_Drosophilidae_XP_016999663.1
+		Drosophila_takahashii_flies_Drosophilidae_XP_017002592.1
+		Drosophila_virilis_flies_Drosophilidae_EDW57403.2
+		Drosophila_willistoni_flies_Drosophilidae_EDW82607.2
+		Drosophila_willistoni_flies_Drosophilidae_KRF99329.1
+		Drosophila_yakuba_flies_Drosophilidae_EDX00967.1
+		Drosophila_yakuba_flies_Drosophilidae_KRK03823.1
+		Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017463943.1
+		Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017463952.1
+		Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017463957.1
+		Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017487830.1
+		Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017489200.1
+		Stomoxys_calcitrans_stable_fly_Muscidae_XP_013097920.1
+		Zeugodacus_cucurbitae_melon_fly_Tephritidae_XP_011177931.1
+		Zeugodacus_cucurbitae_melon_fly_Tephritidae_XP_011177932.1
+		Homo_sapiens_human_Hominidae_NP_690608.1
+		;
+end;
+begin trees;
+	translate
+		1	Aedes_aegypti_yellow_fever_mosquito_Culicidae_EAT47891.1,
+		2	Aedes_aegypti_yellow_fever_mosquito_Culicidae_XP_021707378.1,
+		3	Aedes_albopictus_Asian_tiger_mosquito_Culicidae_KXJ72638.1,
+		4	Aedes_albopictus_Asian_tiger_mosquito_Culicidae_KXJ77200.1,
+		5	Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019533138.1,
+		6	Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019534168.1,
+		7	Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019547023.1,
+		8	Aedes_albopictus_Asian_tiger_mosquito_Culicidae_XP_019547030.1,
+		9	Anopheles_darlingi_American_malaria_mosquito_Culicidae_ETN58798.1,
+		10	Anopheles_darlingi_American_malaria_mosquito_Culicidae_ETN63018.1,
+		11	Anopheles_gambiae_str._PEST_African_malaria_mosquito_Culicidae_EAA14899.4,
+		12	Anopheles_sinensis_mosquitos_Culicidae_KFB37625.1,
+		13	Anopheles_sinensis_mosquitos_Culicidae_KFB37626.1,
+		14	Anopheles_sinensis_mosquitos_Culicidae_KFB43061.1,
+		15	Anopheles_sinensis_mosquitos_Culicidae_KFB45338.1,
+		16	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569333.1,
+		17	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569343.1,
+		18	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569348.1,
+		19	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569351.1,
+		20	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569352.1,
+		21	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569372.1,
+		22	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018569373.1,
+		23	Anoplophora_glabripennis_Asian_longhorned_beetle_Cerambycidae_XP_018577150.1,
+		24	Bactrocera_dorsalis_oriental_fruit_fly_Tephritidae_XP_011208874.1,
+		25	Bactrocera_dorsalis_oriental_fruit_fly_Tephritidae_XP_011208904.1,
+		26	Bactrocera_dorsalis_oriental_fruit_fly_Tephritidae_XP_019847224.1,
+		27	Bactrocera_latifrons_flies_Tephritidae_XP_018802378.1,
+		28	Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014100924.1,
+		29	Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014103567.1,
+		30	Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014103569.1,
+		31	Bactrocera_oleae_olive_fruit_fly_Tephritidae_XP_014103597.1,
+		32	Clunio_marinus_flies_Chironomidae_CRK88362.1,
+		33	Clunio_marinus_flies_Chironomidae_CRK91220.1,
+		34	Clunio_marinus_flies_Chironomidae_CRK93383.1,
+		35	Culex_quinquefasciatus_southern_house_mosquito_Culicidae_EDS29412.1,
+		36	Culex_quinquefasciatus_southern_house_mosquito_Culicidae_EDS30081.1,
+		37	Drosophila_ananassae_flies_Drosophilidae_KPU77448.1,
+		38	Drosophila_ananassae_flies_Drosophilidae_KPU79865.1,
+		39	Drosophila_ananassae_flies_Drosophilidae_KPU79867.1,
+		40	Drosophila_arizonae_flies_Drosophilidae_XP_017871268.1,
+		41	Drosophila_biarmipes_flies_Drosophilidae_XP_016950475.1,
+		42	Drosophila_biarmipes_flies_Drosophilidae_XP_016960291.1,
+		43	Drosophila_bipectinata_flies_Drosophilidae_XP_017101818.1,
+		44	Drosophila_bipectinata_flies_Drosophilidae_XP_017101819.1,
+		45	Drosophila_bipectinata_flies_Drosophilidae_XP_017101820.1,
+		46	Drosophila_bipectinata_flies_Drosophilidae_XP_017101821.1,
+		47	Drosophila_bipectinata_flies_Drosophilidae_XP_017109388.1,
+		48	Drosophila_busckii_flies_Drosophilidae_XP_017850774.1,
+		49	Drosophila_elegans_flies_Drosophilidae_XP_017115146.1,
+		50	Drosophila_erecta_flies_Drosophilidae_EDV48921.1,
+		51	Drosophila_eugracilis_flies_Drosophilidae_XP_017065069.1,
+		52	Drosophila_eugracilis_flies_Drosophilidae_XP_017073118.1,
+		53	Drosophila_ficusphila_flies_Drosophilidae_XP_017056315.1,
+		54	Drosophila_kikkawai_flies_Drosophilidae_XP_017029996.1,
+		55	Drosophila_melanogaster_fruit_fly_Drosophilidae_AAN09306.2,
+		56	Drosophila_melanogaster_fruit_fly_Drosophilidae_AGB95961.1,
+		57	Drosophila_miranda_flies_Drosophilidae_XP_017136629.1,
+		58	Drosophila_miranda_flies_Drosophilidae_XP_017140878.1,
+		59	Drosophila_mojavensis_flies_Drosophilidae_KRG07001.1,
+		60	Drosophila_navojoa_flies_Drosophilidae_XP_017964926.1,
+		61	Drosophila_obscura_flies_Drosophilidae_XP_022211485.1,
+		62	Drosophila_obscura_flies_Drosophilidae_XP_022217077.1,
+		63	Drosophila_persimilis_flies_Drosophilidae_EDW23898.1,
+		64	Drosophila_persimilis_flies_Drosophilidae_EDW27442.1,
+		65	Drosophila_pseudoobscura_pseudoobscura_flies_Drosophilidae_EDY67765.1,
+		66	Drosophila_rhopaloa_flies_Drosophilidae_XP_016986237.1,
+		67	Drosophila_sechellia_flies_Drosophilidae_EDW42149.1,
+		68	Drosophila_sechellia_flies_Drosophilidae_EDW53753.1,
+		69	Drosophila_serrata_flies_Drosophilidae_XP_020804937.1,
+		70	Drosophila_serrata_flies_Drosophilidae_XP_020812821.1,
+		71	Drosophila_simulans_flies_Drosophilidae_EDX12917.1,
+		72	Drosophila_suzukii_flies_Drosophilidae_XP_016923841.1,
+		73	Drosophila_suzukii_flies_Drosophilidae_XP_016937589.1,
+		74	Drosophila_takahashii_flies_Drosophilidae_XP_016999663.1,
+		75	Drosophila_takahashii_flies_Drosophilidae_XP_017002592.1,
+		76	Drosophila_virilis_flies_Drosophilidae_EDW57403.2,
+		77	Drosophila_willistoni_flies_Drosophilidae_EDW82607.2,
+		78	Drosophila_willistoni_flies_Drosophilidae_KRF99329.1,
+		79	Drosophila_yakuba_flies_Drosophilidae_EDX00967.1,
+		80	Drosophila_yakuba_flies_Drosophilidae_KRK03823.1,
+		81	Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017463943.1,
+		82	Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017463952.1,
+		83	Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017463957.1,
+		84	Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017487830.1,
+		85	Rhagoletis_zephyria_snowberry_fruit_fly_Tephritidae_XP_017489200.1,
+		86	Stomoxys_calcitrans_stable_fly_Muscidae_XP_013097920.1,
+		87	Zeugodacus_cucurbitae_melon_fly_Tephritidae_XP_011177931.1,
+		88	Zeugodacus_cucurbitae_melon_fly_Tephritidae_XP_011177932.1,
+		89	Homo_sapiens_human_Hominidae_NP_690608.1
+		;
+   [Note: This tree contains information on the topology, 
+          branch lengths (if present), and the probability
+          of the partition indicated by the branch.]
+   tree con_50_majrule = (1:0.2616024,8:0.3626558,(((((((((2:0.2541941,6:0.1009008)1.000:0.2904466,36:0.2654083)1.000:0.1049657,(10:0.1248014,(11:0.1349049,14:0.1098012)0.998:0.05173522)1.000:0.1870274)1.000:0.1217028,32:0.623083)1.000:0.2179102,((((((16:0.5199308,(19:0.04744489,20:0.05269498)1.000:0.4422862)1.000:0.1975335,(17:0.303201,(21:0.3050353,22:0.3455009)0.676:0.08969883)1.000:0.4269108)1.000:0.2572616,18:0.5733034)1.000:0.2846598,(23:1.243282,(84:0.9163315,89:1.492771)0.982:0.2336366)1.000:0.2799765)1.000:0.3634623,(((((((24:0.1132597,(25:0.151445,(29:0.04724401,30:0.05954269)1.000:0.05878087)1.000:0.04636519)1.000:0.06048139,88:0.1381919)1.000:0.1843545,(82:0.04268905,83:0.01220712)1.000:0.1906003)1.000:0.1183115,(((26:0.1219631,31:0.06359763)1.000:0.09912155,87:0.09624057)1.000:0.1255429,81:0.1958148)1.000:0.1611579)1.000:0.2896213,((27:0.390545,28:0.02147215)1.000:0.1442254,85:0.1712184)1.000:0.1248703)0.999:0.1064982,((((((37:0.05752616,47:0.01361269)1.000:0.08671018,(((((41:0.03968204,72:0.04214635)0.989:0.01368624,74:0.0366693)0.987:0.01336973,(((49:0.04688157,66:0.05301765)0.961:0.01684806,51:0.1110069)0.999:0.01707388,((55:0.03160944,68:0.1085122)0.949:0.02180632,79:0.03839008)1.000:0.03475192)1.000:0.0243538)0.602:0.009824865,(54:0.03824456,69:0.06583786)1.000:0.1044606)0.553:0.01727387,53:0.06682323)0.997:0.02902627)1.000:0.06710399,((57:0.002259177,64:0.05971391)1.000:0.06901393,62:0.04677055)1.000:0.119736)1.000:0.0448217,(((((38:0.09218823,43:0.08999426)1.000:0.1016053,((39:0.08031487,45:0.09749021)1.000:0.04134121,(44:0.1521222,46:0.1167146)1.000:0.0873011)1.000:0.1119412)1.000:0.0704231,((42:0.04579912,(((((50:0.03004262,80:0.0394081)0.922:0.009283789,(56:0.04394611,(67:0.008368159,71:0.02571001)1.000:0.01819965)1.000:0.02856581)1.000:0.07798471,75:0.04590516)0.625:0.01763714,52:0.1403047)0.999:0.0287368,73:0.04084937)1.000:0.03416822)1.000:0.0582434,70:0.1770944)1.000:0.0584358)1.000:0.08069142,((58:0.009906319,(63:0.001920461,65:0.01242644)1.000:0.01521439)1.000:0.07613842,61:0.08440152)1.000:0.09186512)1.000:0.1040203,78:0.3224203)1.000:0.09666582)0.992:0.04311549,(((40:0.009350474,59:0.008239412)0.994:0.01192811,60:0.02275655)1.000:0.1238364,76:0.0833503)1.000:0.08032497)0.899:0.0469117,(48:0.2079506,77:0.2788526)0.868:0.03748077)1.000:0.2884785)0.887:0.08123154,86:0.2422765)1.000:0.4480351)0.900:0.1466151,33:0.965196,34:1.045042)0.978:0.1314652)1.000:0.1558686,(((4:0.01412589,5:0.02070054)1.000:0.6276002,13:0.5802358)0.981:0.1222163,(9:0.2453435,12:0.208583)1.000:0.3743144)1.000:0.1250418)1.000:0.1766581,15:0.6514364)0.980:0.09995382,(3:0.3783898,7:0.1982039)1.000:0.2012893)0.999:0.1331861,35:0.6194169)1.000:0.49295);
+
+   [Note: This tree contains information only on the topology
+          and branch lengths (median of the posterior probability density).]
+   tree con_50_majrule = (1:0.2616024,8:0.3626558,(((((((((2:0.2541941,6:0.1009008):0.2904466,36:0.2654083):0.1049657,(10:0.1248014,(11:0.1349049,14:0.1098012):0.05173522):0.1870274):0.1217028,32:0.623083):0.2179102,((((((16:0.5199308,(19:0.04744489,20:0.05269498):0.4422862):0.1975335,(17:0.303201,(21:0.3050353,22:0.3455009):0.08969883):0.4269108):0.2572616,18:0.5733034):0.2846598,(23:1.243282,(84:0.9163315,89:1.492771):0.2336366):0.2799765):0.3634623,(((((((24:0.1132597,(25:0.151445,(29:0.04724401,30:0.05954269):0.05878087):0.04636519):0.06048139,88:0.1381919):0.1843545,(82:0.04268905,83:0.01220712):0.1906003):0.1183115,(((26:0.1219631,31:0.06359763):0.09912155,87:0.09624057):0.1255429,81:0.1958148):0.1611579):0.2896213,((27:0.390545,28:0.02147215):0.1442254,85:0.1712184):0.1248703):0.1064982,((((((37:0.05752616,47:0.01361269):0.08671018,(((((41:0.03968204,72:0.04214635):0.01368624,74:0.0366693):0.01336973,(((49:0.04688157,66:0.05301765):0.01684806,51:0.1110069):0.01707388,((55:0.03160944,68:0.1085122):0.02180632,79:0.03839008):0.03475192):0.0243538):0.009824865,(54:0.03824456,69:0.06583786):0.1044606):0.01727387,53:0.06682323):0.02902627):0.06710399,((57:0.002259177,64:0.05971391):0.06901393,62:0.04677055):0.119736):0.0448217,(((((38:0.09218823,43:0.08999426):0.1016053,((39:0.08031487,45:0.09749021):0.04134121,(44:0.1521222,46:0.1167146):0.0873011):0.1119412):0.0704231,((42:0.04579912,(((((50:0.03004262,80:0.0394081):0.009283789,(56:0.04394611,(67:0.008368159,71:0.02571001):0.01819965):0.02856581):0.07798471,75:0.04590516):0.01763714,52:0.1403047):0.0287368,73:0.04084937):0.03416822):0.0582434,70:0.1770944):0.0584358):0.08069142,((58:0.009906319,(63:0.001920461,65:0.01242644):0.01521439):0.07613842,61:0.08440152):0.09186512):0.1040203,78:0.3224203):0.09666582):0.04311549,(((40:0.009350474,59:0.008239412):0.01192811,60:0.02275655):0.1238364,76:0.0833503):0.08032497):0.0469117,(48:0.2079506,77:0.2788526):0.03748077):0.2884785):0.08123154,86:0.2422765):0.4480351):0.1466151,33:0.965196,34:1.045042):0.1314652):0.1558686,(((4:0.01412589,5:0.02070054):0.6276002,13:0.5802358):0.1222163,(9:0.2453435,12:0.208583):0.3743144):0.1250418):0.1766581,15:0.6514364):0.09995382,(3:0.3783898,7:0.1982039):0.2012893):0.1331861,35:0.6194169):0.49295);
+end;

@@ -1,0 +1,11 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build docker",
+            "type": "shell",
+            "command": "source project.version && docker build ./ -t pegi3s/phylogenetic-tree-collapser:${PTC_DOCKER_IMAGE_VERSION} --build-arg PTC_VERSION=${PTC_DOCKER_IMAGE_VERSION} --build-arg PTC_JAR_VERSION=${PTC_JAR_VERSION} && docker tag pegi3s/phylogenetic-tree-collapser:${PTC_DOCKER_IMAGE_VERSION} pegi3s/phylogenetic-tree-collapser",
+            "problemMatcher": []
+        },
+    ]
+}
