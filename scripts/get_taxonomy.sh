@@ -74,7 +74,9 @@ do
 		while true; do
     		sleep ${RETRY_DELAY}
 
-			docker run --rm pegi3s/entrez-direct bash -c "esearch -db taxonomy -query "${species}" | efetch -db taxonomy -format xml" > ${TEMP_WORKING_DIR}/${species}.xml
+			# Redirect stdin to /dev/null to close it explicitly, otherwise the standard input of the "while read species" loop is
+			# somehow deleted and it would only work for the first species in the list.
+  			bash -c 'esearch -db taxonomy -query "${1}" | efetch -format xml' _ "${species}" > "${TEMP_WORKING_DIR}/${species}.xml" < /dev/null
 
 			file_size=$(wc -c < ${TEMP_WORKING_DIR}/${species}.xml)
 			if [ ${file_size} -eq 1 ]; then
