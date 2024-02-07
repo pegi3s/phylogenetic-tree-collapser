@@ -22,6 +22,8 @@ then
   exit 1
 fi
 
+MAX_RETRIES=3
+RETRY_DELAY=5
 TEMP_WORKING_DIR=$(mktemp -d /tmp/get_taxonomy.XXXXXXX)
 
 INPUT=$1
@@ -67,15 +69,39 @@ do
 		taxo=$(cat ${PATH_PTC_CACHE}/${species})
 		echo ${species} ";" ${taxo} >> ${TEMP_WORKING_DIR}/taxonomy
 	else
-		docker run --rm pegi3s/entrez-direct bash -c "esearch -db taxonomy -query "${species}" | efetch -db taxonomy -format xml" > ${TEMP_WORKING_DIR}/${species}.xml
-		taxo=$(grep '<Lineage>' ${TEMP_WORKING_DIR}/${species}.xml | sed 's/\<Lineage\>//g; s/[></]//g; s/$/;/g; s/;/;\n/g' | tac | tr '\n' ' ' | sed 's/;$//g')
-		echo ${species} ";" ${taxo} >> ${TEMP_WORKING_DIR}/taxonomy
-		rm ${TEMP_WORKING_DIR}/${species}.xml
-		if [ ! -z ${PATH_PTC_CACHE} ] && [ -d ${PATH_PTC_CACHE} ]; then
-			echo ${taxo} > ${PATH_PTC_CACHE}/${species}
-			sed -i 's/ ;/;/g; s/; /;/g; s/ /_/g' ${PATH_PTC_CACHE}/${species}
-			sed -i 's/+/_/g' ${PATH_PTC_CACHE}/${species}
-		fi
+		retry_count=0
+
+		while true; do
+    		sleep ${RETRY_DELAY}
+
+			docker run --rm pegi3s/entrez-direct bash -c "esearch -db taxonomy -query "${species}" | efetch -db taxonomy -format xml" > ${TEMP_WORKING_DIR}/${species}.xml
+
+			file_size=$(wc -c < ${TEMP_WORKING_DIR}/${species}.xml)
+			if [ ${file_size} -eq 1 ]; then
+				if ((retry_count >= MAX_RETRIES)); then
+					echo "Max retries reached for ${species}, giving up"
+					break
+				else
+					echo "Empty XML file for ${species}. Retrying in ${RETRY_DELAY} seconds..."
+					((retry_count++))
+					sleep ${RETRY_DELAY}
+					continue
+				fi
+			fi
+
+			taxo=$(grep '<Lineage>' ${TEMP_WORKING_DIR}/${species}.xml | sed 's/\<Lineage\>//g; s/[></]//g; s/$/;/g; s/;/;\n/g' | tac | tr '\n' ' ' | sed 's/;$//g')
+			echo ${species} ";" ${taxo} >> ${TEMP_WORKING_DIR}/taxonomy
+
+			rm ${TEMP_WORKING_DIR}/${species}.xml
+
+			if [ ! -z ${PATH_PTC_CACHE} ] && [ -d ${PATH_PTC_CACHE} ]; then
+				echo ${taxo} > ${PATH_PTC_CACHE}/${species}
+				sed -i 's/ ;/;/g; s/; /;/g; s/ /_/g' ${PATH_PTC_CACHE}/${species}
+				sed -i 's/+/_/g' ${PATH_PTC_CACHE}/${species}
+			fi
+
+			break
+		done
 	fi
 done < ${TEMP_WORKING_DIR}/list_of_species
 
