@@ -1,4 +1,6 @@
-FROM pegi3s/docker:20.04
+FROM pegi3s/biopython_utilities:1.78_0.2.0
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y && \
 	apt-get install -y python3 openjdk-8-jdk wget && \
@@ -9,8 +11,6 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 #
 # entrez-direct installation
 #
-
-ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get -qq update && apt-get -y upgrade && \
 	apt-get install -y curl libssl-dev build-essential libio-socket-ssl-perl libxml-simple-perl
@@ -38,7 +38,6 @@ ENV PTC_JAR_VERSION=${PTC_JAR_VERSION}
 
 RUN wget -O /opt/tree-collapser/treecollapse-${PTC_JAR_VERSION}-jar-with-dependencies.jar https://maven.sing-group.org/repository/maven-releases/org/sing_group/treecollapse/${PTC_JAR_VERSION}/treecollapse-${PTC_JAR_VERSION}-jar-with-dependencies.jar
 
-ENV DOCKER_PEGI3S_BIOPYTHON_UTILITIES_VERSION="1.78_0.2.0"
 ENV COLLAPSER_JAR_PATH="/opt/tree-collapser/treecollapse-${PTC_JAR_VERSION}-jar-with-dependencies.jar"
 ENV SCRIPT_PATH_GET_TAXONOMY="/opt/tree-collapser/get_taxonomy.sh"
 ENV SCRIPT_PATH_FLATTEN_TAXONOMY="/opt/tree-collapser/flatten_taxonomy_using_stop_terms.sh"

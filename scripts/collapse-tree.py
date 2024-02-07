@@ -75,16 +75,13 @@ parser.add_argument('-ft', '--flatten-taxonomy-with-stop-terms', help='flattens 
 parser.add_argument('-o', '--output', help='output phylogenetic tree file', required=True)
 parser.add_argument('-ot', '--output-type', help='type of the output phylogenetic tree (one of: {})'.format(', '.join(output_type_list)), required=True)
 parser.add_argument('-ocn', '--output-collapsed-nodes', help='output tab-delimited file with the collapsed nodes', required=True)
-parser.add_argument('-ihp', '--input-path-host', help='path of the directory containing the input file in the host')
 
 arg = parser.parse_args()
-
 
 #
 # Configuration via environment variables
 #
 
-version_biopython_utilities = os.getenv('DOCKER_PEGI3S_BIOPYTHON_UTILITIES_VERSION')
 collapser_jar_path = os.getenv('COLLAPSER_JAR_PATH')
 get_taxonomy_script_path = os.getenv('SCRIPT_PATH_GET_TAXONOMY')
 flatten_taxonomy_script_path = os.getenv('SCRIPT_PATH_FLATTEN_TAXONOMY')
@@ -102,14 +99,12 @@ if not os.path.isfile(arg.input):
 	os._exit(1)
 
 if not(arg.input_format == 'newick'):
-	LOGGER.info('The input file must be converted into Newick:')
-	docker_data_path = arg.input_path_host
+	LOGGER.info('The input file must be converted into Newick')
 	input_file_name = os.path.basename(arg.input)
 	input_file_dir = os.path.dirname(arg.input)
-	if docker_data_path == None:
-		docker_data_path = input_file_dir
+	output_file = arg.input + '.nwk'
 
-	command_convert_tree = 'docker run --rm -it -v "{}":/data pegi3s/biopython_utilities:{} convert_tree.py -i /data/{} -if {} -o /data/{} -of newick'.format(docker_data_path, version_biopython_utilities, input_file_name, arg.input_format, input_file_name + '.nwk')
+	command_convert_tree = f'convert_tree.py -i {arg.input} -if {arg.input_format} -o {output_file} -of newick'
 
 	run(command_convert_tree)
 	input_file = input_file_dir + '/' + input_file_name + '.nwk'
