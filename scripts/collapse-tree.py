@@ -97,6 +97,9 @@ if not(arg.output_type in output_type_list):
 	LOGGER.error('The output type ({}) is not valid. It must be one of: {}.'.format(arg.output_type, ', '.join(output_type_list)))
 	os._exit(1)
 
+if not os.path.isfile(arg.input):
+	LOGGER.error('The input type ({}) does not exist'.format(arg.input))
+	os._exit(1)
 
 if not(arg.input_format == 'newick'):
 	LOGGER.info('The input file must be converted into Newick:')
