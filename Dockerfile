@@ -15,9 +15,14 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN apt-get -qq update && apt-get -y upgrade && \
 	apt-get install -y curl libssl-dev build-essential libio-socket-ssl-perl libxml-simple-perl
 
-RUN sh -c "$(curl -fsSL ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)"
+WORKDIR /opt
 
-ENV PATH="/root/edirect/:${PATH}"
+RUN sh -c "$(curl -fsSL ftp://ftp.ncbi.nlm.nih.gov/entrez/entrezdirect/install-edirect.sh)" && \
+  mv /root/edirect /opt/
+
+ENV PATH="/opt/edirect/:${PATH}"
+
+WORKDIR /
 
 #
 # PTC installation from repository files

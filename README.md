@@ -109,6 +109,8 @@ singularity pull docker://pegi3s/phylogenetic-tree-collapser
 DATA_DIR=/path/to/data
 
 singularity run \
+      -B ${DATA_DIR}/ptc-cache:/ptc-cache \
+      -B ${DATA_DIR}:/data \
       docker://pegi3s/phylogenetic-tree-collapser collapse-tree.py \
          --input /data/input-tree \
          --input-format newick  \
