@@ -49,9 +49,9 @@ This way, sequences from the _Tephritidae_ family will be collapsed and appear u
 
 # Running PTC
 
-To run PTC, the Docker image that contains the script along with all its dependencies must be used. The test cases use Docker as execution engine, although other engines such as Singularity or Podman can be used instead. 
+To run PTC, the Docker image that contains the script along with all its dependencies must be used. The test cases use Docker as execution engine, although other engines such as Singularity or Podman can be used instead as the following subsections show.
 
-As explained above and the test cases illustrate, it must be noted that some parameters are optional.
+Also, as explained above and the test cases illustrate, it must be noted that some parameters are optional.
 
 ## Docker
 
@@ -109,7 +109,7 @@ singularity pull docker://pegi3s/phylogenetic-tree-collapser
 DATA_DIR=/path/to/data
 
 singularity run \
-      -B ${DATA_DIR}/ptc-cache:/ptc-cache \
+      -B ~/.ptc-cache:/ptc-cache \
       -B ${DATA_DIR}:/data \
       docker://pegi3s/phylogenetic-tree-collapser collapse-tree.py \
          --input /data/input-tree \
