@@ -3,6 +3,11 @@
 # Phylogenetic Tree Collapser [![license](https://img.shields.io/badge/license-MIT-brightgreen)](https://github.com/pegi3s/phylogenetic-tree-collapser) [![dockerhub](https://img.shields.io/badge/hub-docker-blue)](https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser)
 > **Phylogenetic Tree Collapser** (PTC) provides a simple and flexible way to collapse phylogenetic trees using taxonomic information. A Docker image is available for this utility in [this Docker Hub repository](https://hub.docker.com/r/pegi3s/phylogenetic-tree-collapser).
 
+## Citing
+
+Please, cite the following publication if you use Phylogenetic Tree Collapser:
+- D. Glez-Peña; H. López-Fernández; P. Duque; C. Vieira; J. Vieira (2024) *Inferences on the evolution of the ascorbic acid synthesis pathway in insects using Phylogenetic Tree Collapser (PTC), a tool for the automated collapsing of phylogenetic trees using taxonomic information*. __Journal of Integrative Bioinformatics__. ISSN: 1613-4516 [![DOI](https://img.shields.io/badge/doi-10.1515%2Fjib--2023--0051-blue)](https://doi.org/10.1515/jib-2023-0051)
+
 ## Table of contents
 
    * [Input files](README.md#input-files)
